@@ -1,7 +1,6 @@
 # O que é eng de SW
   Qual a relação com programação:<br>
-  
-  Analisar, estudar e desenvolver soluções de alta performance<br>
+    Analisar, estudar e desenvolver soluções de alta performance<br>
 
 # O que são requisitos
   Funcionais:<br>
