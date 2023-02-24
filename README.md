@@ -1,10 +1,9 @@
 # O que é eng de SW
+Qual a relação com programação
 
-#Qual a relação com programação
+# O que são requisitos
+  # Funcionais
 
-#O que são requisitos
+  # Não funcionais
 
-#Funcionais
-
-#Não funcionais
-#De 2 exemplos de trade-offs em requisitos não funcionais
+  # De 2 exemplos de trade-offs em requisitos não funcionais
