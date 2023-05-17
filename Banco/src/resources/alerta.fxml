@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="135.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Alerta">
+   <children>
+      <Text fx:id="textoAviso" layoutX="55.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Null" wrappingWidth="335.0" />
+      <JFXButton layoutX="315.0" layoutY="100.0" onAction="#ok" prefHeight="25.0" prefWidth="75.0" ripplerFill="LIME" text="OK" />
+      <ImageView fx:id="imagemAviso" fitHeight="32.0" fitWidth="32.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
