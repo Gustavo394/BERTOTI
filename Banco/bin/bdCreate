@@ -3,11 +3,14 @@ CREATE DATABASE banco;
 CREATE TABLE usuario(
     login VARCHAR(15) NOT NULL PRIMARY KEY,
     senha VARCHAR(15),
-    nome VARCHAR(255)
+    nome VARCHAR(255),
+    tipo VARCHAR(7)
 );
 
-INSERT INTO usuario (login, senha, nome) VALUES ('admin', 'admin', 'admin');
-INSERT INTO usuario (login, senha, nome) VALUES ('abc', '123', 'Abc');
+INSERT INTO usuario (login, senha, nome, tipo) VALUES ('admin', 'admin', 'Administrador', 'admin');
+INSERT INTO usuario (login, senha, nome, tipo) VALUES ('jilson', '0000', 'Jilson', 'gerente');
+INSERT INTO usuario (login, senha, nome, tipo) VALUES ('gustavo', '1234', 'Gustavo', 'comum');
+INSERT INTO usuario (login, senha, nome, tipo) VALUES ('emanuel', '4321', 'Emanuel', 'comum');
 
 CREATE TABLE conta(
     id_conta int NOT NULL PRIMARY KEY,
@@ -16,9 +19,9 @@ CREATE TABLE conta(
     FOREIGN KEY (login) REFERENCES usuario(login)
 );
 
-INSERT INTO saldo (conta, saldo, login) VALUES (1, 100.00, 'admin');
+INSERT INTO conta (id_conta, saldo, login) VALUES (3, 500.00, 'gustavo');
 
-INSERT INTO saldo (conta, saldo, login) VALUES (2, 59.99, 'abc');
+INSERT INTO conta (id_conta, saldo, login) VALUES (4, 50.00, 'emanuel');
 
 CREATE TABLE movimentacao(
     id serial NOT NULL PRIMARY KEY,

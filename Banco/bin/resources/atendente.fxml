@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="tela" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Atendente">
+   <children>
+      <AnchorPane fx:id="sceneBotoes" layoutX="15.0" layoutY="15.0" prefHeight="470.0" prefWidth="200.0">
+         <children>
+            <JFXButton fx:id="btnDeslogar" focusTraversable="false" layoutY="410.0" onAction="#btnDeslogar" prefHeight="60.0" prefWidth="200.0" ripplerFill="#00ff44" text="Deslogar" textFill="WHITE" />
+            <Text fill="WHITE" layoutY="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" />
+            <Text fx:id="textNome" fill="WHITE" layoutX="42.0" layoutY="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nome" />
+            <JFXButton fx:id="btnConsultar" focusTraversable="false" layoutY="20.0" onAction="#btnConsultar" prefHeight="60.0" prefWidth="200.0" ripplerFill="#00ff44" text="Consultar" textFill="WHITE" />
+            <JFXButton fx:id="btnHistorico" focusTraversable="false" layoutY="90.0" onAction="#btnHistorico" prefHeight="60.0" prefWidth="200.0" ripplerFill="#00ff44" text="Historico" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="sceneConsultar" disable="true" layoutX="235.0" layoutY="15.0" prefHeight="470.0" prefWidth="450.0" visible="false">
+         <children>
+            <JFXComboBox fx:id="ids_contas" focusColor="#00ff44" layoutX="15.0" layoutY="5.0" onAction="#ids_contas" prefHeight="26.0" prefWidth="200.0" unFocusColor="WHITE" />
+            <Text fill="WHITE" layoutX="15.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login:" />
+            <Text fx:id="contaLogin" fill="WHITE" layoutX="50.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="login" />
+            <Text fill="WHITE" layoutX="15.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" />
+            <Text fx:id="contaNome" fill="WHITE" layoutX="53.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nome" />
+            <Text fill="WHITE" layoutX="15.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo:" />
+            <Text fx:id="contaSaldo" fill="WHITE" layoutX="51.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="saldo" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="sceneHistorico" disable="true" focusTraversable="true" layoutX="235.0" layoutY="15.0" prefHeight="470.0" prefWidth="450.0" visible="false">
+         <children>
+            <TableView fx:id="tabelaHistorico" layoutX="15.0" layoutY="5.0" prefHeight="410.0" prefWidth="420.0">
+               <columns>
+                  <TableColumn fx:id="id_historico" maxWidth="45.0" minWidth="45.0" prefWidth="45.0" resizable="false" text="ID" />
+                  <TableColumn fx:id="data_historico" maxWidth="135.0" minWidth="135.0" prefWidth="135.0" resizable="false" text="Data" />
+                  <TableColumn fx:id="valor_historico" maxWidth="132.0" minWidth="132.0" prefWidth="132.0" resizable="false" text="Valor" />
+                  <TableColumn fx:id="tipo_historico" maxWidth="93.0" minWidth="93.0" prefWidth="93.0" resizable="false" text="Tipo" />
+               </columns>
+            </TableView>
+            <BarChart fx:id="chartHistorico" animated="false" disable="true" layoutX="15.0" layoutY="45.0" legendSide="TOP" legendVisible="false" prefHeight="370.0" prefWidth="420.0" visible="false">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" tickLabelFill="WHITE">
+                     <tickLabelFont>
+                        <Font size="15.0" />
+                     </tickLabelFont>
+                  </CategoryAxis>
+               </xAxis>
+               <yAxis>
+                  <NumberAxis side="LEFT" tickLabelFill="WHITE">
+                     <tickLabelFont>
+                        <Font size="15.0" />
+                     </tickLabelFont>
+                  </NumberAxis>
+               </yAxis>
+            </BarChart>
+            <Text fx:id="legendaChartHistorico" fill="WHITE" layoutX="115.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laranja: saque          Amarelo: deposito">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <JFXComboBox fx:id="historicoAno" disable="true" focusColor="#00ff44" layoutX="15.0" layoutY="5.0" onAction="#historicoAno" prefHeight="26.0" prefWidth="200.0" unFocusColor="WHITE" visible="false" />
+            <JFXComboBox fx:id="historicoMes" disable="true" focusColor="#00ff44" layoutX="235.0" layoutY="5.0" onAction="#historicoMes" prefHeight="26.0" prefWidth="200.0" unFocusColor="WHITE" visible="false" />
+            <JFXButton fx:id="btnTabelaHistorico" layoutX="15.0" layoutY="425.0" onAction="#btnTabelaHistorico" prefHeight="45.0" prefWidth="205.0" ripplerFill="#00ff44" text="Tabela" textFill="WHITE" />
+            <JFXButton fx:id="btnGraficoHistorico" layoutX="230.0" layoutY="425.0" onAction="#btnGraficoHistorico" prefHeight="45.0" prefWidth="205.0" ripplerFill="#00ff44" text="Grafico" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>

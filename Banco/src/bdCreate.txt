@@ -1,0 +1,33 @@
+CREATE DATABASE banco;
+
+CREATE TABLE usuario(
+    login VARCHAR(15) NOT NULL PRIMARY KEY,
+    senha VARCHAR(15),
+    nome VARCHAR(255),
+    tipo VARCHAR(7)
+);
+
+INSERT INTO usuario (login, senha, nome, tipo) VALUES ('admin', 'admin', 'Administrador', 'admin');
+INSERT INTO usuario (login, senha, nome, tipo) VALUES ('jilson', '0000', 'Jilson', 'gerente');
+INSERT INTO usuario (login, senha, nome, tipo) VALUES ('gustavo', '1234', 'Gustavo', 'comum');
+INSERT INTO usuario (login, senha, nome, tipo) VALUES ('emanuel', '4321', 'Emanuel', 'comum');
+
+CREATE TABLE conta(
+    id_conta int NOT NULL AUTO INCREMENT PRIMARY KEY,
+    saldo DECIMAL(10, 2),
+    login VARCHAR(15) not null,
+    FOREIGN KEY (login) REFERENCES usuario(login)
+);
+
+INSERT INTO conta (id_conta, saldo, login) VALUES (3, 500.00, 'gustavo');
+
+INSERT INTO conta (id_conta, saldo, login) VALUES (4, 50.00, 'emanuel');
+
+CREATE TABLE movimentacao(
+    id serial NOT NULL PRIMARY KEY,
+    dia TIMESTAMP NOT NULL,
+    tipo VARCHAR(8) NOT NULL,
+    valor DECIMAL(10, 2) NOT NULL,
+    id_conta int not null,
+    FOREIGN KEY (id_conta) REFERENCES conta(id_conta)
+)
